@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>	Cart Page </title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+	<!--Custom Font-->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<!--===============================================================================================-->
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!--===============================================================================================-->
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="css2/font-awesome.min.css">
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css2/style.css" />
+	<link type="text/css" rel="stylesheet" href="css2/slick.css" />
+	<link type="text/css" rel="stylesheet" href="css2/slick-theme.css" />
+
+
+
+	
+
+
+</head>
+
+<body body oncontextmenu="return false">
+	
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span></button>
+					<a class="navbar-brand" href="#"><span>pi</span>cco</a>
+				<ul class="nav navbar-top-links navbar-right">
+					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+						<em class="fa fa-user-o"></em>
+					</a>
+						<ul class="dropdown-menu dropdown-messages">
+							<li>
+								<div class="dropdown-messages-box"><a href="profile.html" class="pull-left">
+									<img alt="image" class="img-circle" src="http://placehold.it/40/30a5ff/fff">
+									</a>
+									<a href="#"><strong><%= name %></a>
+									
+								</div>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<div class="all-button"><a href="#">
+									<em class="fa fa-inbox"></em> <strong><%=mymail%></strong>
+								</a></div>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<div class="all-button"><a href="/readydownloads">
+									<em class="fa fa-inbox"></em> <strong>Paid images</strong>
+								</a></div>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<div class="all-button"><a href="/logout">
+									<em class="fa fa-inbox"></em> <strong>logout</strong>
+								</a></div>
+							</li>
+						</ul>
+					</li>
+					
+			</div>
+		</div><!-- /.container-fluid -->
+	</nav>
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				
+				<li><a href="/user">Dasboard</a></li>
+				<li><a href="/readydownloads">Paid Images</a></li>
+				<li class="active">Cart</li>
+			</ul>
+		</div>
+	</div>
+	
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url(images/bg.jpg);">
+					<span class="login100-form-title-1">
+						<span> my Carts </span>
+
+					</span>
+				</div>
+
+				<% if (cartimage != null) { %>
+
+					
+				<div id="shopping-cart">
+					<div class="shopping-cart-list">
+						<% cartimage.forEach(function(pics) {
+								%>
+						<div class="product product-widget">
+							<div class="product-thumb">
+								<img src="<%=pics.item.photo_name %>" alt="">
+							</div>
+							<div class="product-body">
+								<h2 class="product-name"><a href="#"> <%= pics.item.event_name %> </a></h2>
+								<h3 class="product-price">GHC <%= pics.item.photo_price %> <span class="qty"></span></h3>	
+							</div>
+							
+							<a href="/cart/<%= pics.item.photo_id %> ">	<button  class="cancel-btn"><i class="fa fa-trash"></i></button> </a>
+							
+						</div>
+
+						<% });   %>
+
+
+					</div>
+					<h1>TOTAL <i class="fa fa-arrow-circle-right"></i>  <span> <h3 class="main-btn">GHC <%=amount%> </h3>  </span> </h1>
+					
+					<!-- <div class="shopping-cart-btns"> -->
+						   <form action="/payme/" method="POST"  >
+					        <button class="primary-btn">Make Payment <i class="fa fa-arrow-circle-right"></i></button>
+					       </form>
+					   </div>
+				</div>
+					
+
+				<%  } else  {   %>
+					<h4 style="margin-bottom:20px;text-align:center;color: #ff0000;">No image is in cart yet add and download your
+						nicest picture</h4>	
+				<%  } %>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- FOOTER -->
+	<footer id="footer" class="section section-grey">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- footer widget -->
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<div class="footer">
+						<!-- footer logo -->
+						<div class="footer-logo">
+							<a class="logo" href="#">
+		            <img src="./images/logo2.png" alt="">
+		          </a>
+						</div>
+						<!-- /footer logo -->
+
+						<p>Download all your connected pictures at an affordable price anytime you attend an event.</p>
+
+						<!-- footer social -->
+						<ul class="footer-social">
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+						</ul>
+						<!-- /footer social -->
+					</div>
+				</div>
+				<!-- /footer widget -->
+
+				
+
+				<div class="clearfix visible-sm visible-xs"></div>
+
+				<!-- footer widget -->
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<div class="footer">
+						<h3 class="footer-header">Customer Service</h3>
+						<ul class="list-links">
+							<li><a href="#">About Us</a></li>
+							<li><a href="#">Shiping & Return</a></li>
+							<li><a href="#">Shiping Guide</a></li>
+							<li><a href="#">FAQ</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- /footer widget -->
+
+				<!-- footer subscribe -->
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<div class="footer">
+						<h3 class="footer-header">Stay Connected</h3>
+						<p>Download all your connected pictures at an affordable price anytime you attend an event.</p>
+						
+					</div>
+				</div>
+				<!-- /footer subscribe -->
+				<!-- footer widget -->
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<div class="footer">
+						<form>
+							<div class="form-group">
+								<input class="input" placeholder="Enter Email Address">
+							</div>
+							<button class="primary-btn">Join Newslatter</button>
+						</form>
+					</div>
+				</div>
+				<!-- /footer widget -->
+			</div>
+			<!-- /row -->
+			<hr>
+			<!-- row -->
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<!-- footer copyright -->
+					<div class="footer-copyright">
+						<!-- Link back to picco can't be removed. Template is licensed under CC BY 3.0. -->
+						Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved  by <a href="https://picco.com" target="_blank">picco</a>
+						<!-- Link back to picco can't be removed. Template is licensed under CC BY 3.0. -->
+					</div>
+					<!-- /footer copyright -->
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- /Cart -->
+
+	<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	<script src="js2/jquery.min.js"></script>
+	<script src="js2/bootstrap.min.js"></script>
+	<script src="js2/slick.min.js"></script>
+	<script src="js2/nouislider.min.js"></script>
+	<script src="js2/jquery.zoom.min.js"></script>
+	<script src="js2/main.js"></script>
+
+</body>
+
+</html>

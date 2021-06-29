@@ -1,0 +1,5 @@
+ <% data.forEach(element => {%>
+         <h1> <%= element.companyname %>  </h1>
+        
+        <% })  %> 
+    
