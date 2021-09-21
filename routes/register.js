@@ -49,7 +49,8 @@ const users =
 con.query('INSERT INTO photographers SET ?',users, function (error, results, fields) {
   if (error) {
     
-  res.render("error");
+  // res.render("error");
+  console.log(error)
   }else{
       res.redirect('/login')
   }

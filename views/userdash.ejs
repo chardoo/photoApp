@@ -31,8 +31,28 @@
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="css2/style.css" />
 	
+    <script defer src="js2/face-api.min.js"></script>
+	
+	<script defer src="js2/script.js"></script>
 
-
+	<style>
+		body {
+		  margin: 0;
+		  padding: 0;
+		  width: 100vw;
+		  height: 100vh;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  flex-direction: column
+		}
+	
+		canvas {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		}
+	  </style>
 	
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -129,7 +149,7 @@
 	
 	
 	
-	
+
 	
 	
 	
@@ -200,6 +220,7 @@
 		<!-- container -->
 		<div class="container">
 			<!-- row -->
+			<input type="file" id="imageUpload">
 			<div class="row">
 				<!--  Product Details -->
 				

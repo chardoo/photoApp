@@ -105,14 +105,7 @@
 					</span>
 				</div>
 
-				<% if (!pic) { %>
-				<h4 style="margin-bottom:20px;text-align:center;color: #ff0000;">No image is in cart yet add and download your
-					nicest picture</h4>
-
-
-				<%  } else  {   %>
-
-
+			<% if (pic != null) { %>
 
 				<div id="shopping-cart">
 					<div class="shopping-cart-list">
@@ -139,8 +132,14 @@
 					</div>
 					
 				</div>
-				<%  } %>
+				
 
+				<%  } else  {   %>
+               
+					<h4 style="margin-bottom:20px;text-align:center;color: #ff0000;">No image is in cart yet add and download your
+						nicest picture</h4>
+
+					<%  } %>
 			</div>
 		</div>
 	</div>
